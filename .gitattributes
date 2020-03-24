@@ -1,0 +1,16 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+#* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+
+# Declare files that will always have LF line endings on checkout.
+*.java text eol=lf
+*.csv text eol=lf
+*.properties text eol=lf
+*.topo text eol=lf
+*.txt text eol=lf
+
+# Denote all files that are truly binary and should not be modified.
+*.xlsx binary
+*.jar binary
