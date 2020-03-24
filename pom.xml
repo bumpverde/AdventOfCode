@@ -5,6 +5,13 @@
   <version>0.0.1-SNAPSHOT</version>
   <description>Advent of Code</description>
 
+  <properties>
+      <maven.compiler.target>1.8</maven.compiler.target>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
   <dependencies>
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
@@ -32,19 +39,12 @@
         <artifactId>javaslang</artifactId>
         <version>2.0.6</version>
     </dependency>
-
-    <dependency>
-        <groupId>com.squareup.tape2</groupId>
-        <artifactId>tape</artifactId>
-        <version>2.0.0-beta1</version>
-    </dependency>
-
+  
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
+      <version>4.13</version>
     </dependency>
     
   </dependencies>
