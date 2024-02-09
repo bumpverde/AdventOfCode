@@ -51,6 +51,10 @@ public class AdventUtils {
         return -1;
     };
 
+    public static IntStream toIntStream(Collection<String> strings) {
+        return strings.stream().mapToInt(s -> toInt(s));
+    }
+
     public static String toString(IntStream chars) {
         StringBuilder sb = new StringBuilder();
 

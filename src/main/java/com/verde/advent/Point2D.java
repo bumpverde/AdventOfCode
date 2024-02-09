@@ -79,4 +79,9 @@ public class Point2D implements Comparable<Point2D> {
         Point2D rhs = (Point2D) o;
         return (x == rhs.x) && (y == rhs.y);
     }
+
+    @Override
+    public String toString() {
+        return String.format("(%d, %d)", getX(), getY());
+    }
 }
