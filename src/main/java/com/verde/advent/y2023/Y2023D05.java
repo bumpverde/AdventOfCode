@@ -97,7 +97,7 @@ humidity-to-location map:
             // If there is no mapping, we will return the srcVal
             if (mapping != null) {
                 result = mapping.mapSrcToDst(srcVal);
-                System.out.printf("Using %s-%s mapping [%,d; %,d] to map %,d to [%,d: %,d]: result=%,d\n", srcName, dstName, mapping.srcRange.min, mapping.srcRange.max, srcVal, mapping.dstRange.min, mapping.dstRange.max, result);
+                //System.out.printf("Using %s-%s mapping [%,d; %,d] to map %,d to [%,d: %,d]: result=%,d\n", srcName, dstName, mapping.srcRange.min, mapping.srcRange.max, srcVal, mapping.dstRange.min, mapping.dstRange.max, result);
             }
 
             return result;
@@ -175,7 +175,7 @@ humidity-to-location map:
             System.out.println();
         }
 
-        if (false && (mappedVal == 0)) {
+        if (mappedVal == 0) {
             System.out.printf("Seed %,d mapped to 0!\n", srcVal);
         }
 
@@ -213,7 +213,7 @@ humidity-to-location map:
                     assertEquals(String.format("Seed %d is incorrect", seed), expected[i], result);
                 }
 
-                if ((seed % 1_000_000) == 0) {
+                if ((seed % 10_000_000) == 0) {
                     System.out.printf("\tseed = %,d, minLocation = %,d\n", seed, minLocation);
                 }
             }
@@ -250,12 +250,13 @@ humidity-to-location map:
     @Test
     public void testPart2() {
         Collection<String> inputs = AdventUtils.loadResourceStrings("/2023/day5-p1.txt");
+        long expected = 12_634_632L;
 
         // I am seeing seed 2,281,290,972 map to the location 0, which becomes the "closest location"
         // for all the seeds, but which is not the answer. Since all these mappings produce positive
         // numbers, and if one maps to 0, how can the closest location then not be 0?
+        //seedsToPlant = new long[] { 2_281_290_972L, 1L };  // reset seeds to debug how this seed maps to location 0
         init(inputs, true);
-        seedsToPlant = new long[] { 2_281_290_972L, 1L };  // reset seeds to debug how this seed maps to location 0
         long actual = getClosestLocation(true, null);
         System.out.printf("%d\n", actual);
     }

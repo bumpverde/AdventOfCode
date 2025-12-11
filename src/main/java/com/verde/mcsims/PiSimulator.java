@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class PiSimulator {
     static final long ONE_MILLION = 1000000L;
     static final long NANOS_PER_SECOND = 1000000000L;
-    public static long MAX_ITERS = 30 * ONE_MILLION;
+    public static long MAX_ITERS = 100 * ONE_MILLION;
 
     private static AtomicLong numInCirlce = new AtomicLong(0);
     private static AtomicLong numInSquare = new AtomicLong(0);
@@ -67,12 +67,13 @@ public class PiSimulator {
         long start = System.nanoTime();
 
         // Start all the workers
-        for (int i=0; i<1; ++i) {
+        for (int i=0; i<4; ++i) {
             new Thread(new PointGenerator()).start();
         }
 
         // Wait until its done
         while (! done.get()) {
+            Thread.sleep(1000);
             if (numEvals.get() > MAX_ITERS) {
                 done.set(true);
             }
